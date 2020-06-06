@@ -16,9 +16,12 @@ Developers:
 - [ ] Ability to see all items
 - [ ] Form where users can add new items to study/work on
 - [x] Test
-## Tools Used
 
+## Tools Used
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+- yarn
+- prettier 
 
 ## Available Scripts
 
