@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button, Icon, Segment } from 'semantic-ui-react';
+//TODO: Fix 'findDOMnode' console warning from using Button component
 
 class App extends Component {
   state = {
@@ -20,8 +22,34 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Would you like a suggestion for what to work on today?</p>
-          <button onClick={this.getSuggestion}>Yes</button>
-          <button onClick={() => this.setState({ display: 'nope' })}>No</button>
+          <Segment inverted>
+            <Button
+              animated
+              inverted
+              size="big"
+              floated="right"
+              color="green"
+              onClick={this.getSuggestion}
+            >
+              <Button.Content visible>Yes!</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow right" />
+              </Button.Content>
+            </Button>
+            <Button
+              animated
+              inverted
+              size="big"
+              floated="left"
+              color="red"
+              onClick={() => this.setState({ display: 'nope' })}
+            >
+              <Button.Content visible>No</Button.Content>
+              <Button.Content hidden>
+                <Icon name="ban" />
+              </Button.Content>
+            </Button>
+          </Segment>
         </header>
         <div className="hidden" id="results">
           <p>Results!</p>
