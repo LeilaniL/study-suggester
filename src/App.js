@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Icon } from 'semantic-ui-react';
 import './App.css';
 import Question from './Question';
 
@@ -16,7 +17,20 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} />
+          {this.state.display == "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} /> : this.state.display == "suggestion" ? <p>Yay!</p> : <p>Ok, fine then.</p>}
+          {this.state.display != "question" && <Button
+            basic
+            animated
+            inverted
+            size="big"
+            color="blue"
+            onClick={() => this.handleDisplayChange("question")}
+          >
+            <Button.Content visible>Back</Button.Content>
+            <Button.Content hidden>
+              <Icon name="home" />
+            </Button.Content>
+          </Button>}
         </div>
       </div>
     );

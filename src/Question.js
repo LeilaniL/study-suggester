@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Header, Icon, Segment } from 'semantic-ui-react';
 //TODO: Fix 'findDOMnode' console warning from using Button component
@@ -10,7 +10,6 @@ const Question = (props) => {
     let index = Math.floor(Math.random() * props.allTopics.length);
     console.log(props.allTopics[index]);
     props.onDisplayChange("suggestion")
-    // this.setState({ display: 'suggestion' });
   };
   return (
     <div className="App">
@@ -51,14 +50,6 @@ const Question = (props) => {
           </Button>
         </Segment>
       </div>
-      {/* <div className="hidden" id="results">
-        <p>Results!</p>
-      </div>
-      {this.state.display === 'nope' && (
-        <div>
-          <p>Ok, fine. Do whatever you want.</p>
-        </div>
-      )} */}
     </div >
   );
 }
