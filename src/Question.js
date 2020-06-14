@@ -10,7 +10,7 @@ const Question = (props) => {
 
   return (
     <Segment inverted>
-      <Header as="h1" icon inverted color="teal" textAlign="center">
+      <Header icon inverted color="teal" size="huge" textAlign="center">
         <Icon name="question circle" color="teal" circular />
         <Header.Content>I'm not sure what to study today</Header.Content>
       </Header>
