@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { Button, Header, Icon, Segment } from 'semantic-ui-react';
+import { Button, Header, Icon, Label, Segment } from 'semantic-ui-react';
 import React from 'react';
 
 const Suggestion = (props) => {
   const { selectedTopic } = props;
   return (
-    <Segment inverted>
-      <Header size="huge"><a href={selectedTopic.link} target="_blank" style={{ color: "hotpink" }}>{selectedTopic.name}</a></Header>
+    <Segment inverted >
+      <Button inverted><Header size="huge"><a href={selectedTopic.link} target="_blank" style={{ color: "hotpink" }}>{selectedTopic.name}</a></Header></Button>
       <Header size="medium">{selectedTopic.description}</Header>
     </Segment>
   )

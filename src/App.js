@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Icon, Segment } from 'semantic-ui-react';
+import { Button, Icon, Label, Segment } from 'semantic-ui-react';
 import './App.css';
 import Question from './Question';
 import Suggestion from './Suggestion';
@@ -16,6 +16,7 @@ class App extends Component {
     this.setState({ display: status });
   }
   getSuggestion = () => {
+    //TODO remove selected topic so no repeat suggestions
     let index = Math.floor(Math.random() * this.state.allTopics.length);
     this.state.selectedTopic = this.state.allTopics[index];
     this.handleDisplayChange("suggestion");
@@ -24,7 +25,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Segment inverted>
+          <Segment inverted style={{ padding: "10em" }}>
+            <Label attached="top right" color="violet">JavaScript</Label>
             {this.state.display == "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display == "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
               : <p>Ok, fine then.</p>}
             {this.state.display != "question" && <Button

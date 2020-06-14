@@ -23,6 +23,17 @@ Developers:
 - [ ] Save topics in database
 - [ ] Add authentication so users can store/track their own topics
 
+<!-- TODO styling
+- indicate title is clickable
+- fix alignment of tags
+- change favicon
+- get images from sites? or have placeholder icons (depending on media type?)
+- randomize color of heading as well?
+- add more depth to page
+- made segment have fixed size
+- add header and/or navbar (title, copyright, contact, home) -->
+
+
 ## Tools Used
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
