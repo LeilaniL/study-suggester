@@ -1,4 +1,4 @@
-# Study Chooser
+# Study Suggester
 6/6/20
 
 ## Description
@@ -7,21 +7,27 @@ As web developers, there's always more to learn, and it can be difficult to choo
 ## Setup/Installation Instructions
 Developers:
 1) Clone this project
-2) In your terminal, navigate to the project folder (i.e. `cd Desktop/study-chooser`)
+2) In your terminal, navigate to the project folder (i.e. `cd Desktop/study-suggester`)
 3) Run `yarn install` to install all dependencies
 4) Run `yarn start`
 5) Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
 ## Roadmap
-- [ ] Ability to see all items
+- [x] Return randomly selected link with description
+- [ ] Ability to see all items at once
+- [ ] Track what was suggested and/or selected to work on last time
+- [ ] Filter suggestions by language, media type
 - [ ] Form where users can add new items to study/work on
-- [x] Test
+- [ ] Save added topics, remember selected ones in local storage
+- [ ] Deploy site
+- [ ] Save topics in database
+- [ ] Add authentication so users can store/track their own topics
 
 ## Tools Used
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- yarn
-- prettier 
+- <a href="https://classic.yarnpkg.com/en/docs/getting-started" target="_blank"> yarn </a>
+- <a href="https://react.semantic-ui.com/" target="_blank> Semantic UI React </a>
 
 ## Available Scripts
 
