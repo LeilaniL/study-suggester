@@ -27,7 +27,7 @@ Developers:
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 - <a href="https://classic.yarnpkg.com/en/docs/getting-started" target="_blank"> yarn </a>
-- <a href="https://react.semantic-ui.com/" target="_blank> Semantic UI React </a>
+- <a href="https://react.semantic-ui.com/" target="_blank"> Semantic UI React </a>
 
 ## Available Scripts
 
