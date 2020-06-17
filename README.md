@@ -6,11 +6,22 @@ As web developers, there's always more to learn, and it can be difficult to choo
 
 ## Setup/Installation Instructions
 Developers:
-1) Clone this project
-2) In your terminal, navigate to the project folder (i.e. `cd Desktop/study-suggester`)
-3) Run `yarn install` to install all dependencies
-4) Run `yarn start`
-5) Open [http://localhost:3000](http://localhost:3000) to view it in your browser
+- Clone this project
+- Set up environment variables: at root level, create `.env` file, replacing with your own keys:
+```
+REACT_APP_FIREBASE_API_KEY = "YOUR-UNIQUE-CREDENTIALS"
+REACT_APP_FIREBASE_AUTH_DOMAIN = "YOUR-PROJECT-NAME.firebaseapp.com"
+REACT_APP_FIREBASE_DATABASE_URL = "https://YOUR-PROJECT-NAME.firebaseio.com"
+REACT_APP_FIREBASE_PROJECT_ID = "YOUR-PROJECT-FIREBASE-PROJECT-ID"
+REACT_APP_FIREBASE_STORAGE_BUCKET = "YOUR-PROJECT-NAME.appspot.com"
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID = "YOUR-PROJECT-SENDER-ID"
+REACT_APP_FIREBASE_APP_ID = "YOUR-PROJECT-APP-ID"
+```
+More info on creating a Firebase account can be found <a href="https://www.learnhowtoprogram.com/react/react-with-nosql/setting-up-a-firebase-project" target="_blank">here.</a>
+- In your terminal, navigate to the project folder (i.e. `cd Desktop/study-suggester`)
+- Run `yarn install` to install all dependencies
+- Run `yarn start`
+- Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
 ## Roadmap
 - [x] Return randomly selected link with description
