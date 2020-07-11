@@ -4,6 +4,17 @@ import './App.css';
 import Question from './Question';
 import Suggestion from './Suggestion';
 import { getHardcodedList } from './topicList';
+import firebase from './firebase';
+
+//eslint-disable-next-line
+// 
+const sendTest = firebase.database.collection('todo').add({title: 'first todo', description: 'new todo' })
+.then(documentReference => {
+  console.log('document reference ID', documentReference.id)
+})
+.catch(error => {
+  console.log(error.message)
+});
 
 class App extends Component {
   state = {
@@ -35,7 +46,8 @@ class App extends Component {
               inverted
               size="big"
               color="blue"
-              onClick={() => this.handleDisplayChange("question")}
+              // onClick={() => this.handleDisplayChange("question")}
+              onClick={sendTest}
             >
               <Button.Content visible>Back</Button.Content>
               <Button.Content hidden>
