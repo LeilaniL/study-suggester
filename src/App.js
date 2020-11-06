@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Button, Icon, Label, Segment } from 'semantic-ui-react';
 import './App.css';
-import Question from './Question';
-import Suggestion from './Suggestion';
+import Question from './components/Question';
+import Suggestion from './components/Suggestion';
 import { getHardcodedList } from './topicList';
+
+//TODO fix size of div so black section doesn't resize all the time
+//TODO refactor to use hooks?
 
 class App extends Component {
   state = {
