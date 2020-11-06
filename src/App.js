@@ -4,17 +4,24 @@ import './App.css';
 import Question from './Question';
 import Suggestion from './Suggestion';
 import { getHardcodedList } from './topicList';
-import firebase from './firebase';
+import Firebase from './firebase';
 
 //eslint-disable-next-line
 // 
-const sendTest = firebase.database.collection('todo').add({title: 'first todo', description: 'new todo' })
-.then(documentReference => {
-  console.log('document reference ID', documentReference.id)
+// const sendTest = firebase.database.collection('todo').add({title: 'first todo', description: 'new todo' })
+// .then(documentReference => {
+//   console.log('document reference ID', documentReference.id)
+// })
+// .catch(error => {
+//   console.log(error.message)
+// });
+const firebase = new Firebase();
+
+const sendTest = firebase.db.collection('suggestions').get().then(querySnapshot => {
+  querySnapshot.forEach((doc)=> {
+    console.log(`For ${doc.data().name}, click here: ${doc.data().last}`)
+  })
 })
-.catch(error => {
-  console.log(error.message)
-});
 
 class App extends Component {
   state = {
