@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Header, Icon, Segment } from 'semantic-ui-react';
 //TODO: Fix 'findDOMnode' console warning from using Button component
-import './App.css';
-import Suggestion from './Suggestion';
+import '../App.css';
+// import Suggestion from './Suggestion';
 
 
 const Question = (props) => {
