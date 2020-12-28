@@ -21,7 +21,8 @@ class App extends Component {
   getSuggestion = () => {
     //TODO remove selected topic so no repeat suggestions
     let index = Math.floor(Math.random() * this.state.allTopics.length);
-    this.state.selectedTopic = this.state.allTopics[index];
+    const newState = this.state.allTopics[index];
+    this.setState({ selectedTopic: newState });
     this.handleDisplayChange("suggestion");
   };
   render() {
@@ -30,9 +31,9 @@ class App extends Component {
         <div className="App-header">
           <Segment inverted style={{ padding: "10em" }}>
             <Label attached="top right" color="violet">JavaScript</Label>
-            {this.state.display == "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display == "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
+            {this.state.display === "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display === "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
               : <p>Ok, fine then.</p>}
-            {this.state.display != "question" && <Button
+            {this.state.display !== "question" && <Button
               basic
               animated
               inverted
