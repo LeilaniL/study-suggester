@@ -47,6 +47,11 @@ class App extends Component {
               </Button.Content>
             </Button>}
           </Segment>
+          <div className="App footer">
+            <span>© 2020 Leilani Leach </span>
+            <Icon name="envelope outline" />
+            <Icon name="linkedin" />
+          </div>
         </div>
       </div>
     );
