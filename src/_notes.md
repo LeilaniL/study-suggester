@@ -1,0 +1,1 @@
+- Switched to Semantic's Grid components instead of custom CSS: Already using library for icons and other styles, makes sense to save time. CSS and other code getting unwieldy -- created copy of App.js to focus on layout/skeleton instead of state, conditional rendering, etc.
