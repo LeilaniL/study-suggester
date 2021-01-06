@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Icon, Label, Segment } from 'semantic-ui-react';
+import { Button, Grid, Icon, Label, Segment } from 'semantic-ui-react';
 import './App.css';
 import Question from './components/Question';
 import Suggestion from './components/Suggestion';
@@ -29,29 +29,57 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Segment inverted style={{ padding: "10em" }}>
-            <Label attached="top right" color="violet">JavaScript</Label>
-            {this.state.display === "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display === "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
-              : <p>Ok, fine then.</p>}
-            {this.state.display !== "question" && <Button
-              basic
-              animated
-              inverted
-              size="big"
-              color="blue"
-              onClick={() => this.handleDisplayChange("question")}
-            >
-              <Button.Content visible>Back</Button.Content>
-              <Button.Content hidden>
-                <Icon name="home" />
-              </Button.Content>
-            </Button>}
-          </Segment>
-          <div className="App footer">
-            <span>© 2020 Leilani Leach </span>
-            <Icon name="envelope outline" />
-            <Icon name="linkedin" />
+          <div className="App">
+            <Grid>
+              <Grid.Row columns={4}>
+                <Grid.Column>
+                  <Icon name="envelope home" />
+                </Grid.Column>
+                <Grid.Column>
+                  <span>About | </span>
+                </Grid.Column>
+                <Grid.Column>
+                  <span>View Suggestions | </span>
+                </Grid.Column>
+                <Grid.Column>
+                  <span>Add Suggestion | </span>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
           </div>
+          <Grid>
+            <Grid.Row columns={1}>
+              <Grid.Column>
+                <Segment inverted style={{ padding: "10em" }}>
+                  <Label attached="top right" color="violet">JavaScript</Label>
+                  {this.state.display === "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display === "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
+                    : <p>Ok, fine then.</p>}
+                  {this.state.display !== "question" && <Button
+                    basic
+                    animated
+                    inverted
+                    size="big"
+                    color="blue"
+                    onClick={() => this.handleDisplayChange("question")}
+                  >
+                    <Button.Content visible>Back</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="home" />
+                    </Button.Content>
+                  </Button>}
+                </Segment>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={1}>
+              <Grid.Column>
+                <div className="App footer">
+                  <span>© 2020 Leilani Leach </span>
+                  <Icon name="envelope outline" />
+                  <Icon name="linkedin" />
+                </div>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </div>
       </div>
     );
