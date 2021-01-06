@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Button, Header, Icon, Label, Segment } from 'semantic-ui-react';
+import { Button, Header, Segment } from 'semantic-ui-react';
 import React from 'react';
 
 const Suggestion = (props) => {
