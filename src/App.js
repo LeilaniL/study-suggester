@@ -42,7 +42,6 @@ class App extends Component {
                   <span>View Suggestions | </span>
                 </Grid.Column>
                 <Grid.Column>
-                  <span>Add Suggestion | </span>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
