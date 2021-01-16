@@ -50,9 +50,10 @@ class App extends Component {
             <Grid.Row columns={1} className="bground-img">
               <Grid.Column>
                 <div style={{
-                  padding: "10em"
+                  padding: "10em", width: "90rem", height: "50rem", marginLeft: "auto", marginRight: "auto"
                 }}>
-                  < Label attached="top right" color="violet" > JavaScript</Label>
+                  {/* TODO fix labels/tags  */}
+                  {/* < Label attached="top right" color="violet" > JavaScript</Label> */}
                   {this.state.display === "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display === "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
                     : <p>Ok, fine then.</p>}
                   {this.state.display !== "question" && <Button
