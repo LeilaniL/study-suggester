@@ -17,6 +17,11 @@
   color: #61dafb;
 }
 
+.bground-img {
+  background-image: url("../src/img/000-Online-Code-Editors.png");
+  opacity: 0.5;
+}
+
 .footer{
   margin-top: 1rem;
   padding: 1rem;
@@ -27,6 +32,8 @@
   position: fixed;
   font-size: 1rem
 }
+
+
 
 /* .header{
   margin-top: 1rem;

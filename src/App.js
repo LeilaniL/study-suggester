@@ -47,10 +47,12 @@ class App extends Component {
             </Grid>
           </div>
           <Grid>
-            <Grid.Row columns={1}>
+            <Grid.Row columns={1} className="bground-img">
               <Grid.Column>
-                <Segment inverted style={{ padding: "10em" }}>
-                  <Label attached="top right" color="violet">JavaScript</Label>
+                <div style={{
+                  padding: "10em"
+                }}>
+                  < Label attached="top right" color="violet" > JavaScript</Label>
                   {this.state.display === "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display === "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
                     : <p>Ok, fine then.</p>}
                   {this.state.display !== "question" && <Button
@@ -66,7 +68,7 @@ class App extends Component {
                       <Icon name="home" />
                     </Button.Content>
                   </Button>}
-                </Segment>
+                </div>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>
@@ -80,7 +82,7 @@ class App extends Component {
             </Grid.Row>
           </Grid>
         </div>
-      </div>
+      </div >
     );
   }
 }
