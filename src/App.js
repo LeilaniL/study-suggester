@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Icon, Label, Segment } from 'semantic-ui-react';
+import { Button, Grid, Icon, Label, Segment } from 'semantic-ui-react';
 import './App.css';
 import Question from './components/Question';
 import Suggestion from './components/Suggestion';
@@ -15,13 +15,13 @@ import Firebase from './firebase';
 // .catch(error => {
 //   console.log(error.message)
 // });
-const firebase = new Firebase();
+// const firebase = new Firebase();
 
-const sendTest = firebase.db.collection('suggestions').get().then(querySnapshot => {
-  querySnapshot.forEach((doc)=> {
-    console.log(`For ${doc.data().name}, click here: ${doc.data().last}`)
-  })
-})
+// const sendTest = firebase.db.collection('suggestions').get().then(querySnapshot => {
+//   querySnapshot.forEach((doc) => {
+//     console.log(`For ${doc.data().name}, click here: ${doc.data().last}`)
+//   })
+// })
 
 //TODO fix size of div so black section doesn't resize all the time
 //TODO refactor to use hooks?
@@ -47,27 +47,62 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Segment inverted style={{ padding: "10em" }}>
-            <Label attached="top right" color="violet">JavaScript</Label>
-            {this.state.display === "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display === "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
-              : <p>Ok, fine then.</p>}
-            {this.state.display !== "question" && <Button
-              basic
-              animated
-              inverted
-              size="big"
-              color="blue"
-              // onClick={() => this.handleDisplayChange("question")}
-              onClick={sendTest}
-            >
-              <Button.Content visible>Back</Button.Content>
-              <Button.Content hidden>
-                <Icon name="home" />
-              </Button.Content>
-            </Button>}
-          </Segment>
+          <div className="App">
+            <Grid>
+              <Grid.Row columns={4}>
+                <Grid.Column>
+                  <span><Icon name="envelope home" /> </span>
+                </Grid.Column>
+                <Grid.Column>
+                  <span>About | </span>
+                </Grid.Column>
+                <Grid.Column>
+                  <span>Add Suggestion | </span>
+                </Grid.Column>
+                <Grid.Column>
+                  <span>View All | </span>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </div>
+          <Grid>
+            <Grid.Row columns={1} className="bground-img">
+              <Grid.Column>
+                <div style={{
+                  padding: "10em", width: "90rem", height: "50rem", marginLeft: "auto", marginRight: "auto"
+                }}>
+                  {/* TODO fix labels/tags  */}
+                  {/* < Label attached="top right" color="violet" > JavaScript</Label> */}
+                  {this.state.display === "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display === "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
+                    : <p>Ok, fine then.</p>}
+                  {this.state.display !== "question" && <Button
+                    basic
+                    animated
+                    inverted
+                    size="big"
+                    color="blue"
+                    onClick={() => this.handleDisplayChange("question")}
+                  >
+                    <Button.Content visible>Back</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="home" />
+                    </Button.Content>
+                  </Button>}
+                </div>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={1}>
+              <Grid.Column>
+                <div className="App footer">
+                  <span>© 2020 Leilani Leach </span>
+                  <Icon name="envelope outline" />
+                  <Icon name="linkedin" />
+                </div>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </div>
-      </div>
+      </div >
     );
   }
 }
