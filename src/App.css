@@ -33,15 +33,8 @@
   font-size: 1rem
 }
 
-
-
-/* .header{
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #282c34;
-  top: 0;
-  left: 0;
-  width: 100%;
-  position: fixed;
-  font-size: 1rem
-} */
+.column > span {
+  display: block;
+  padding-top: 1rem;
+  padding-bottom: 1rem
+}

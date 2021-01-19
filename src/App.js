@@ -33,15 +33,16 @@ class App extends Component {
             <Grid>
               <Grid.Row columns={4}>
                 <Grid.Column>
-                  <Icon name="envelope home" />
+                  <span><Icon name="envelope home" /> </span>
                 </Grid.Column>
                 <Grid.Column>
                   <span>About | </span>
                 </Grid.Column>
                 <Grid.Column>
-                  <span>View Suggestions | </span>
+                  <span>Add Suggestion | </span>
                 </Grid.Column>
                 <Grid.Column>
+                  <span>View All | </span>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
