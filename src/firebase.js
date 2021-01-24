@@ -8,28 +8,33 @@ const firebaseConfig = {
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID 
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 }
 
 firebase.initializeApp(firebaseConfig);
 
 class Firebase {
-db = firebase.firestore();
+  db = firebase.firestore();
 
-addSuggestion(newSuggestion) {
-  this.db.collection('suggestions').add(newSuggestion).catch(function(e) {
-    console.error('Error adding suggestion: ', e);
-  })
-}
-
-getSuggestions() {
-  let results = [];
-  this.db.collection('suggestions').get().then(querySnapshot => {
-    querySnapshot.forEach(doc => {
-      results.push(doc);
+  addSuggestion(newSuggestion) {
+    this.db.collection('suggestions').add(newSuggestion).catch(function (e) {
+      console.error('Error adding suggestion: ', e);
     })
-  })
-  console.log(results);
+  }
+
+  getSuggestions = async () => {
+    let results = [];
+    const snapshots = await this.db.collection('suggestions').get();
+    snapshots.forEach(entry => {
+      results.push(entry.data())
+    })
+    console.log(results);
+    return results;
+    // .then(querySnapshot => {
+    //   querySnapshot.forEach(doc => {
+    //     results.push(doc.data());
+    // })
+  }
   // return results;
   // return [...querySnapshot]
 }
@@ -44,6 +49,5 @@ getSuggestions() {
 // .catch(function(error) {
 //   console.error("Error adding document: ", error);
 // });
-}
 
 export default Firebase;
