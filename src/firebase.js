@@ -22,32 +22,20 @@ class Firebase {
     })
   }
 
-  getSuggestions = async () => {
+  getAll = async () => {
     let results = [];
     const snapshots = await this.db.collection('suggestions').get();
     snapshots.forEach(entry => {
       results.push(entry.data())
     })
-    console.log(results);
+    console.log('GET ALL: ', results);
     return results;
-    // .then(querySnapshot => {
-    //   querySnapshot.forEach(doc => {
-    //     results.push(doc.data());
-    // })
   }
-  // return results;
-  // return [...querySnapshot]
-}
-// db.collection("suggestions").add({
-//   first: "Ada",
-//   last: "Lovelace",
-//   born: 1815
-// })
-// .then(function(docRef) {
-//   console.log("Document written with ID: ", docRef.id);
-// })
-// .catch(function(error) {
-//   console.error("Error adding document: ", error);
-// });
 
+  getDetail = async (entryID) => {
+    let result = await (await this.db.collection('suggestions').doc(entryID).get()).data();
+    console.log('GET ONE: ', result);
+    return result;
+  }
+}
 export default Firebase;
