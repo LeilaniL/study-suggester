@@ -19,7 +19,8 @@
 
 .bground-img {
   background-image: url("../src/img/000-Online-Code-Editors.png");
-  opacity: 0.5;
+  opacity: 0.75;
+  background-size: 35%;
 }
 
 .footer{
