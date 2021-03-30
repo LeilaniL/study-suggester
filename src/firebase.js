@@ -17,9 +17,19 @@ class Firebase {
   db = firebase.firestore();
 
   addSuggestion(newSuggestion) {
-    this.db.collection('suggestions').add(newSuggestion).catch(function (e) {
-      console.error('Error adding suggestion: ', e);
-    })
+    console.log(newSuggestion);
+    const increment = firebase.firestore.FieldValue.increment(1);
+    // const suggestRef = this.db.collection('suggestions').add(newSuggestion).catch(function (e) {
+    //   console.error('Error adding suggestion: ', e);
+    // });
+    const statsRef = this.db.collection('suggestions').doc('stats');
+    const newSuggestId = (statsRef.totalNumber || "1").toString();
+    const suggestRef = this.db.collection('suggestions').doc(newSuggestId);
+    const batch = this.db.batch();
+    batch.set(suggestRef, newSuggestion, { merge: true });
+    batch.set(statsRef, { totalNumber: increment }, { merge: true });
+    batch.commit();
+
   }
 
   getAll = async () => {
@@ -33,7 +43,7 @@ class Firebase {
   }
 
   getDetail = async (entryID) => {
-    let result = await (await this.db.collection('suggestions').doc(entryID).get()).data();
+    let result = (await this.db.collection('suggestions').doc(entryID).get()).data();
     console.log('GET ONE: ', result);
     return result;
   }

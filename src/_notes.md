@@ -5,3 +5,20 @@
 One option: Store count of database in separate collection, and any write-methods will update that count, but the read-ones won't need to.
 
 Reference: https://fireship.io/snippets/firestore-increment-document-id-value/
+
+Other ideas: Query by name, returning the first match(or a random index?) for a randomly chosen letter. Pros: Reduces size of data called from Firestore (only matches for a name). Cons: Pushes more responsibility onto front-end, no guarantee every letter or most letters will be included in data set of names
+
+Firestore has increment/decrement feature now: https://firebase.googleblog.com/2019/03/increment-server-side-cloud-firestore.html (save count)
+Examples: https://fireship.io/snippets/firestore-increment-tips/ 
+
+TODO: read up on BATCHES vs. TRANSACTIONS in Firestore (transactions include reads)
+
+- Assigning sequential IDs for getting random one returned: these need to be unique to a user. Don't want to return someone else's entry! Or try to access an out-of-range ID because count isn't restricted to just your own documents. Maybe separate collection per user?
+WHAT: using `set` instead of `add` lets you specify ID 
+
+Status: 
+✓ getDetail()/GET{id} is working
+  ? but sends 3 API calls -- POST, GET, POST 
+✓ getAll()/GET is working
+✓ getAll()/POST is working!
+- will add 'UD' to the 'CR' later: i.e. marking one done/editing

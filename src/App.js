@@ -15,13 +15,12 @@ import Firebase from './firebase';
 // .catch(error => {
 //   console.log(error.message)
 // });
-// const firebase = new Firebase();
+const firebase = new Firebase();
 
-// const sendTest = firebase.db.collection('suggestions').get().then(querySnapshot => {
-//   querySnapshot.forEach((doc) => {
-//     console.log(`For ${doc.data().name}, click here: ${doc.data().last}`)
-//   })
-// })
+const sendTest = () => {
+  firebase.addSuggestion({ 'name': 'TEST1', 'link': 'https://www.linkedin.com/in/leilani-leach/detail/assessments/C%23/quiz-intro/', 'type': 'quiz', 'language': 'C#' });
+
+}
 
 //TODO fix size of div so black section doesn't resize all the time
 //TODO refactor to use hooks?
@@ -51,7 +50,7 @@ class App extends Component {
             <Grid>
               <Grid.Row columns={4}>
                 <Grid.Column>
-                  <span><Icon name="envelope home" /> </span>
+                  <span><Icon name="envelope" /> </span>
                 </Grid.Column>
                 <Grid.Column>
                   <span>About | </span>
@@ -89,6 +88,7 @@ class App extends Component {
                     </Button.Content>
                   </Button>}
                 </div>
+                <Button basic inverted size="big" color="violet" onClick={sendTest}>TEST!!!</Button>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>
