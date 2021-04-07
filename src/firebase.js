@@ -16,20 +16,22 @@ firebase.initializeApp(firebaseConfig);
 class Firebase {
   db = firebase.firestore();
 
-  addSuggestion(newSuggestion) {
-    console.log(newSuggestion);
+  async addSuggestion(newSuggestion) {
     const increment = firebase.firestore.FieldValue.increment(1);
-    // const suggestRef = this.db.collection('suggestions').add(newSuggestion).catch(function (e) {
-    //   console.error('Error adding suggestion: ', e);
-    // });
-    const statsRef = this.db.collection('suggestions').doc('stats');
-    const newSuggestId = (statsRef.totalNumber || "1").toString();
-    const suggestRef = this.db.collection('suggestions').doc(newSuggestId);
-    const batch = this.db.batch();
-    batch.set(suggestRef, newSuggestion, { merge: true });
-    batch.set(statsRef, { totalNumber: increment }, { merge: true });
-    batch.commit();
-
+    const collectRef = this.db.collection('suggestions');
+    const docRef = collectRef.doc('stats');
+    try {
+      await this.db.runTransaction(async (t) => {
+        const res = await this.db.collection('suggestions').add(newSuggestion);
+        const newRef = this.db.collection('suggestions').doc(res.id);
+        const countRef = await t.get(docRef);
+        const newCount = parseInt(countRef.get('totalNumber')) + 1;
+        t.update(docRef, { totalNumber: increment });
+        t.update(newRef, { countId: newCount });
+      })
+    } catch (e) {
+      console.error('Transaction error:', e);
+    }
   }
 
   getAll = async () => {
