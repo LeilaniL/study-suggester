@@ -49,5 +49,24 @@ class Firebase {
     console.log('GET ONE: ', result);
     return result;
   }
+
+  getRandom = async () => {
+    // check count of db entries
+    // generate random number up to/including that number
+    // return Firestore document with that countId, or error object
+    try {
+      const ref = this.db.collection('suggestions');
+      let countStats = (await ref.doc('stats').get()).data();
+      const count = countStats.totalNumber || 0;
+      const randomNum = Math.ceil(Math.random() * count);
+      const result = await (ref.where('countId', '==', randomNum)).get();
+      result.forEach((doc) => {
+        console.log(doc.id, ' => ', doc.data());
+      });
+    } catch (e) {
+      console.error('Error:', e);
+      return ({ errorMsg: e });
+    }
+  }
 }
 export default Firebase;

@@ -13,8 +13,14 @@ Examples: https://fireship.io/snippets/firestore-increment-tips/
 
 TODO: read up on BATCHES vs. TRANSACTIONS in Firestore (transactions include reads)
 
-- Assigning sequential IDs for getting random one returned: these need to be unique to a user. Don't want to return someone else's entry! Or try to access an out-of-range ID because count isn't restricted to just your own documents. Maybe separate collection per user?
+TODO: Assigning sequential IDs for getting random one returned: these need to be unique to a user. Don't want to return someone else's entry! Or try to access an out-of-range ID because count isn't restricted to just your own documents. Maybe separate collection per user?
+
 WHAT: using `set` instead of `add` lets you specify ID 
+
+TODO: Should the totalCount be a property of the Firebase class that's retrieved/set upon instantiation? Maybe half the methods would need that value currently (post, getRandom)
+
+How do we keep the totalNumber tied to the countIDs? Set listener?
+(Related: For delete, should we have 'soft delete'--keeping the IDs and count the same?)
 
 Status: 
 ✓ getDetail()/GET{id} is working
@@ -22,3 +28,5 @@ Status:
 ✓ getAll()/GET is working
 ✓ getAll()/POST is working!
 - will add 'UD' to the 'CR' later: i.e. marking one done/editing
+✓ posting with set ID and incremented count is working finally!
+✓ get random suggestion works! (TODO refactor and add error/null handling)
