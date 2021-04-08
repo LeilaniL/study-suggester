@@ -39,3 +39,7 @@
   padding-top: 1rem;
   padding-bottom: 1rem
 }
+
+input {
+  background: gray !important;
+}

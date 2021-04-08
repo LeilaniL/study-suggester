@@ -21,12 +21,19 @@ TODO: Should the totalCount be a property of the Firebase class that's retrieved
 
 How do we keep the totalNumber tied to the countIDs? Set listener?
 (Related: For delete, should we have 'soft delete'--keeping the IDs and count the same?)
+TODO: look into Firebase Cloud Functions
 
 Status: 
 ✓ getDetail()/GET{id} is working
   ? but sends 3 API calls -- POST, GET, POST 
 ✓ getAll()/GET is working
 ✓ getAll()/POST is working!
-- will add 'UD' to the 'CR' later: i.e. marking one done/editing
+- will add 'UD' to the 'CR' later: i.e. marking one done/editing (Idea: instead of delete, have either 'mark done' or 'not interested/snooze'?)
 ✓ posting with set ID and incremented count is working finally!
 ✓ get random suggestion works! (TODO refactor and add error/null handling)
+- needs tests: https://claritydev.net/blog/testing-firestore-locally-with-firebase-emulators/
+- create form to add new ones (UI)
+- create link previews for when topic returned
+- get random, filtered by type
+- get random but no duplicates
+- get all (UI)

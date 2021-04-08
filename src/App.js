@@ -5,21 +5,15 @@ import Question from './components/Question';
 import Suggestion from './components/Suggestion';
 import { getHardcodedList } from './topicList';
 import Firebase from './firebase';
+import CreateSuggestion from './components/CreateSuggestion';
 
-//eslint-disable-next-line
-// 
-// const sendTest = firebase.database.collection('todo').add({title: 'first todo', description: 'new todo' })
-// .then(documentReference => {
-//   console.log('document reference ID', documentReference.id)
-// })
-// .catch(error => {
-//   console.log(error.message)
-// });
 const firebase = new Firebase();
 
 const sendTest = () => {
-  firebase.addSuggestion({ 'name': 'TEST1', 'link': 'https://www.linkedin.com/in/leilani-leach/detail/assessments/C%23/quiz-intro/', 'type': 'quiz', 'language': 'C#' });
-
+  // firebase.addSuggestion({
+  //   'name': 'Fourth Topic', 'language': 'C#'
+  // });
+  firebase.getRandom();
 }
 
 //TODO fix size of div so black section doesn't resize all the time
@@ -89,6 +83,11 @@ class App extends Component {
                   </Button>}
                 </div>
                 <Button basic inverted size="big" color="violet" onClick={sendTest}>TEST!!!</Button>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={1}>
+              <Grid.Column>
+                <CreateSuggestion />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>
