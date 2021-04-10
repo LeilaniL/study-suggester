@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Grid, Icon, Label, Segment } from 'semantic-ui-react';
 import './App.css';
-import Question from './components/Question';
-import Suggestion from './components/Suggestion';
 import { getHardcodedList } from './topicList';
 import Firebase from './firebase';
-import CreateSuggestion from './components/CreateSuggestion';
+
+// Includes Navbar, ShowAll/Browse?
 
 const firebase = new Firebase();
 
@@ -41,6 +40,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <div className="App">
+            {/* Navbar */}
             <Grid>
               <Grid.Row columns={4}>
                 <Grid.Column>
@@ -57,49 +57,10 @@ class App extends Component {
                 </Grid.Column>
               </Grid.Row>
             </Grid>
+            {/* End Navbar */}
+            {/* returns LogIn, Register, or SuggesterContainer */}
+            {/* Footer */}
           </div>
-          <Grid>
-            <Grid.Row columns={1} className="bground-img">
-              <Grid.Column>
-                <div style={{
-                  padding: "10em", width: "90rem", height: "50rem", marginLeft: "auto", marginRight: "auto"
-                }}>
-                  {/* TODO fix labels/tags  */}
-                  {/* < Label attached="top right" color="violet" > JavaScript</Label> */}
-                  {this.state.display === "question" ? <Question onDisplayChange={this.handleDisplayChange} allTopics={this.state.allTopics} getSuggestion={this.getSuggestion} /> : this.state.display === "suggestion" ? <Suggestion testProp="test" allTopics={this.state.allTopics} selectedTopic={this.state.selectedTopic} />
-                    : <p>Ok, fine then.</p>}
-                  {this.state.display !== "question" && <Button
-                    basic
-                    animated
-                    inverted
-                    size="big"
-                    color="blue"
-                    onClick={() => this.handleDisplayChange("question")}
-                  >
-                    <Button.Content visible>Back</Button.Content>
-                    <Button.Content hidden>
-                      <Icon name="home" />
-                    </Button.Content>
-                  </Button>}
-                </div>
-                <Button basic inverted size="big" color="violet" onClick={sendTest}>TEST!!!</Button>
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row columns={1}>
-              <Grid.Column>
-                <CreateSuggestion />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row columns={1}>
-              <Grid.Column>
-                <div className="App footer">
-                  <span>© 2020 Leilani Leach </span>
-                  <Icon name="envelope outline" />
-                  <Icon name="linkedin" />
-                </div>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
         </div>
       </div >
     );
